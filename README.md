@@ -1,69 +1,81 @@
-# E-commerce Back End
+# E-Commerce Back End
 
-User Story
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Acceptance Criteria
-GIVEN a functional Express.js API
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
-WHEN I open API GET routes in Insomnia for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully create, update, and delete data in my database
+  ## Description
+  A MySQL database and application back end for an e-commerce site. This was built using MySQL2, Express, Sequelize and dotenv.
 
-Mock-Up
+  ## Table of Contents
+  - [Description](#Description)
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+  - [Contribution](#Contribution)
+  - [Questions](#Questions)
+  - [License](#License)
 
-The first animation shows GET routes to return all categories, all products, and all tags being tested in Insomnia:
+  ##
+  
+  ## Installation
+  To install the project follow the steps below:
+  
+- Git clone the repository with either HTTP or SSH
+```bash
+git clone
+```
 
-In Insomnia, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.
+- Install the necessary dependencies 
+```bash
+npm install
+```
 
-The second animation shows GET routes to return a single category, a single product, and a single tag being tested in Insomnia:
+  ## Usage
+  Run the following command at the root of your project:
+  
+ ```bash
+ mysql -u root -p
+ ```
+ - And enter your MySQL password
+ 
+ - Then build the database with:
 
-In Insomnia, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”
+```bash
+source db/schema.sql
+```
 
-The final animation shows the POST, PUT, and DELETE routes for categories being tested in Insomnia:
+- Then quit MySQL with:
+```bash
+quit
+```
 
-In Insomnia, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”
+- Then seed your database with the sample data with:
 
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
+```bash
+npm run seed
+```
 
-Getting Started
-You’ll need to use the MySQL2 (Links to an external site.) and Sequelize (Links to an external site.) packages to connect your Express.js API to a MySQL database and the dotenv package (Links to an external site.) to use environment variables to store sensitive data, like your MySQL username, password, and database name.
+- Then start the server with either:
+```bash
+npm start
+```
+or
+```bash
+node server
+```
 
-Use the schema.sql file in the db folder to create your database using MySQL shell commands. Use environment variables to store sensitive data, like your MySQL username, password, and database name.
+### Watch a walkthrough video [here](https://drive.google.com/file/d/1LesXHuNrbcs8l2zMsp7MRp8yATm8MGxk/view?usp=sharing).
 
-Associations
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
+Below are some screen shots of the GET requests in action
+<img width="1920" alt="get_categories" src="https://user-images.githubusercontent.com/47282257/168897906-b98435d6-bbf8-46d4-80b9-14e7e9cdfd5c.png">
+<img width="1920" alt="get_products" src="https://user-images.githubusercontent.com/47282257/168897927-0811d673-8248-4171-a717-6bbf9f90f242.png">
+<img width="1920" alt="get_tags" src="https://user-images.githubusercontent.com/47282257/168897938-0895ae06-d333-42c2-a5a8-7295550d3527.png">
 
-Product belongs to Category, as a category can have multiple products but a product can only belong to one category.
+  ## Contribution
+  No contributions are necessary at this time.
 
-Category has many Product models.
+  ## Questions
+  Check out other projects I have built: [Github](https://github.com/ianaack)
+  
+  Or reach me directly for additional questions: ianaack@gmail.com
 
-Product belongs to many Tag models. Using the ProductTag through model, allow products to have multiple tags and tags to have many products.
-
-Tag belongs to many Product models.
-
-HINT
-Make sure you set up foreign key relationships that match the column we created in the respective models.
-
-Fill Out the API Routes to Perform RESTful CRUD Operations
-Fill out the unfinished routes in product-routes.js, tag-routes.js, and category-routes.js to perform create, read, update, and delete operations using your Sequelize models.
-
-NOTE
-The functionality for creating the many-to-many relationship for products is already done for you.
-
-HINT
-Be sure to look at your module project's code for syntax help and use your model's column definitions to figure out what req.body will be for POST and PUT routes!
-
-Seed the Database
-After creating the models and routes, run npm run seed to seed data to your database so that you can test your routes.
-
-Sync Sequelize to the Database on Server Start
-Create the code needed in server.js to sync the Sequelize models to the MySQL database on server start.
+  ## License
+  This project is covered under the MIT License.
